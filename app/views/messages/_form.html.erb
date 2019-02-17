@@ -1,4 +1,5 @@
-<% if message.errors.any? %>
+<%= form_for(message) do |f| %>
+  <% if message.errors.any? %>
     <div id="error_explanation">
       <ul>
         <% message.errors.full_messages.each do |message| %>
@@ -6,9 +7,11 @@
         <% end %>
       </ul>
     </div>
-<% end %>
-  
-<%= form_for(message) do |f| %>
+  <% end %>
+
+  <%= f.label :title, 'タイトル' %>
+  <%= f.text_field :title %>
+
   <%= f.label :content, 'メッセージ' %>
   <%= f.text_field :content %>
 
